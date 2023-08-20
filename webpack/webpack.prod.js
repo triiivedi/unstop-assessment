@@ -9,7 +9,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       base: {
-        href: "https://triiivedi.github.io/unstop/",
+        href: "https://triiivedi.github.io/unstop-assessment/",
         target: "_blank",
       },
     }),
