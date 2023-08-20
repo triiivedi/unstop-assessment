@@ -8,7 +8,6 @@ module.exports = {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "../build"),
     publicPath: "auto",
-    clean: true,
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],

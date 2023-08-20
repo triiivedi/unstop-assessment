@@ -8,6 +8,7 @@ module.exports = merge(common, {
   mode: "production",
   plugins: [
     new HtmlWebpackPlugin({
+      template: './public/index.html',
       base: {
         href: "https://triiivedi.github.io/unstop-assessment/",
         target: "_blank",
