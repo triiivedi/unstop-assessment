@@ -1,6 +1,13 @@
 import Details from "./details/Details";
 import { useStyles } from "./overviewCard.styles";
 
+/**
+ * Card for overview section
+ * @param {string} props.heading 
+ * @param {string} props.icon 
+ * @param {any[]} props.data 
+ * @returns 
+ */
 const OverviewDetails = ({ heading, icon, data }: IOverviewDetails) => {
   const styles = useStyles();
   return (
@@ -8,11 +15,11 @@ const OverviewDetails = ({ heading, icon, data }: IOverviewDetails) => {
       <p css={styles.ocHeading}>{heading}</p>
       <div css={styles.ocWrapper}>
         <img css={styles.icon} src={icon} alt="detail" />
-        <div css={{ "&:last-child": { border: "none" }, display: 'flex'}}>
+        <div css={styles.itemWrapper}>
           {data.map((item: any) => {
             return (
               <>
-                <Details count={item.count} description={item.description} />
+                <Details count={item.count} description={item.description} increment={item.increment} />
                 <div css={styles.separator} />
               </>
             );
@@ -25,8 +32,8 @@ const OverviewDetails = ({ heading, icon, data }: IOverviewDetails) => {
 
 interface IOverviewDetails {
   heading: string;
-  icon: any;
-  data: any;
+  icon: string;
+  data: any[];
 }
 
 export default OverviewDetails;

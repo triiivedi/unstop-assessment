@@ -109,12 +109,6 @@ export const useStyles = () => {
         display: "flex",
         justifyContent: "center",
       },
-      footer: {
-        left: 0,
-        bottom: 0,
-        textAlign: "center",
-        width: "100%",
-      },
       closeBtn: {
         position: "absolute",
         right: 0,

@@ -1,5 +1,10 @@
 import { useMemo } from "react";
 import { useBreakpoints } from "../../../hooks";
+
+/**
+ * styles for assessment card
+ * @returns object
+ */
 export const useStyles = () => {
   const { isMobile } = useBreakpoints();
   return useMemo(() => {

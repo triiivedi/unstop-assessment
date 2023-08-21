@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "../header";
 import Overview from "../overview/Overview";
 import MyAssessment from "../myAssessment/MyAssessment";
-import ModalV3 from "../modalV3";
+import ModalV3 from "../modal";
 import AssessmentForm from "../assessmentForm/AssessmentForm";
 import { useBreakpoints } from "../../hooks";
 import { useStyles } from "./assessment.styles";
@@ -39,7 +39,7 @@ const Assessment = (): JSX.Element => {
         onClose={handleCloseClick}
         showClose={true}
         body={<AssessmentForm />}
-        title="Create new assessment"
+        title={<p css={styles.title}>{isMobile ? "Sub-Section Details" : "Create new assessment"}</p>}
         customStyles={{
           modal: {
             minWidth: isMobile ? "100%" : 591,
@@ -47,7 +47,7 @@ const Assessment = (): JSX.Element => {
             transform: "translateX(-50%)",
           },
           modalContent: { borderRadius: 8, padding: 0 },
-          body: { maxHeight: 800 },
+          body: { maxHeight: isMobile ? 400 : 600 },
         }}
       />
     </>

@@ -3,10 +3,18 @@ import svgs from "../../assets/svgs";
 import { useStyles } from "./leftNavigation.styles";
 import { navData } from "./leftNavigation.util";
 
+
+/**
+ * Component to render left navigation for both web and web responsive
+ * @returns {JSX.Element}
+ */
 const LeftNavigation = () => {
   const styles = useStyles();
   const {isMobile} = useBreakpoints()
 
+  /**
+   * rendering admin badge
+   */
   const badgeToRender = (
     <div css={styles.adminBadge}>
       <p css={styles.adminText}>Admin</p>

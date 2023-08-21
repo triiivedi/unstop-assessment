@@ -1,10 +1,17 @@
 import { useMemo } from "react";
 import { useBreakpoints } from "../../hooks";
 
+/**
+ * styles for my assessment section
+ * @returns object
+ */
 export const useStyles = () => {
   const { isMobile } = useBreakpoints();
   return useMemo(() => {
     return {
+      maContainer: {
+        marginTop: isMobile?100:0,
+      },
       maHeading: {
         fontSize: isMobile ? 16 : 18,
         fontWeight: isMobile ? 600 : 500,
@@ -23,7 +30,7 @@ export const useStyles = () => {
         alignItems: "center",
       },
       maCardContainer: {
-        display: isMobile?'block':"flex",
+        display: isMobile ? "block" : "flex",
         alignItems: "cenetr",
       },
       icon: {

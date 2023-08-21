@@ -1,5 +1,6 @@
 import svgs from "../../assets/svgs";
 
+// for left navigation
 export const navData = [
   {
     text: "Dashboard",

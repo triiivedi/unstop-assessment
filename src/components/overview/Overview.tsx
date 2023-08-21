@@ -1,8 +1,7 @@
 import OverviewDetails from "./overviewCard/OverviewCard";
 import { useStyles } from "./overview.styles";
-import { overviewData } from "./overview.util";
+import { overviewData, overviewMobileData } from "./overview.util";
 import { useBreakpoints } from "../../hooks";
-import OverviewTab from "./overviewTab/OverviewTab.tsx";
 
 /**
  * Component to render Overview section conditionally for web and web responsive
@@ -13,7 +12,7 @@ const Overview = (): JSX.Element => {
   const { isMobile } = useBreakpoints();
 
   return isMobile ? (
-    <OverviewTab />
+    <></>
   ) : (
     <div>
       <p css={styles.aoHeading}>Assessment Overview</p>

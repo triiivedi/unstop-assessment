@@ -64,7 +64,7 @@ const MyAssessment = ({ setOpen }: IMyAssessment): JSX.Element => {
   }, [isMobile, assessmentMobileData, assessmentWebData]);
 
   return (
-    <div>
+    <div css={styles.maContainer}>
       {headingToRender}
       <div css={styles.maCardContainer}>
         <NewAssessment setOpen={setOpen} />

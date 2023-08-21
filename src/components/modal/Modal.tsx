@@ -1,15 +1,10 @@
 import React, { useMemo } from "react";
 import ReactDOM from "react-dom";
-// import Icon from "@components/icon";
-
-import { useStyles } from "./modalV3.styles";
-import { useModalV3 } from "./useModalV3";
+import { useStyles } from "./modal.styles";
+import { useModalV3 } from "./useModal";
 import { useBreakpoints } from "../../hooks";
 import svgs from "../../assets/svgs";
 
-const AUTO_CLOSE_TIME = 1 * 1000; // 1 second
-
-//TODO: Add snapshot test after fixing the mui fade error
 /**
  * Component to render the Modal Content
  * @param {boolean} props.open
@@ -24,7 +19,7 @@ const AUTO_CLOSE_TIME = 1 * 1000; // 1 second
  * @param {number} props.autoCloseTime (optional)
  * @returns {JSX.Element}
  */
-const ModalV3 = (props: IModalV3): JSX.Element => {
+const ModalComp = (props: IModal): JSX.Element => {
   const {
     open,
     onClose,
@@ -133,17 +128,17 @@ const ModalV3 = (props: IModalV3): JSX.Element => {
  * @param {IModalV3} props
  * @returns {JSX.Element}
  */
-const Modal = (props: IModalV3): JSX.Element => {
+const Modal = (props: IModal): JSX.Element => {
   const target = useMemo(() => document.getElementById("modal"), []);
 
   return (
     <>
       {target &&
         ReactDOM.createPortal(
-          <ModalV3 {...props} />,
+          <ModalComp {...props} />,
           document.getElementById("modal") as any
         )}
-      {!target && <ModalV3 {...props} />}
+      {!target && <ModalComp {...props} />}
     </>
   );
 };
@@ -154,7 +149,7 @@ type Size = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 /**
  * Interface for modal component props
  */
-interface IModalV3 {
+interface IModal {
   open: boolean;
   onClose: () => void;
   title?: string | React.ReactNode;
@@ -194,14 +189,11 @@ interface IModalCustomStyles {
 /**
  * Default props for modal component
  */
-ModalV3.defaultProps = {
+ModalComp.defaultProps = {
   showClose: true,
   disableOutsideClick: false,
   testId: "modal",
   backdrop: true,
-  allowAutoClose: false,
-  autoCloseTime: AUTO_CLOSE_TIME,
-  textAlign: "left",
 };
 
 export default Modal;

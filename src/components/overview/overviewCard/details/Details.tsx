@@ -1,11 +1,21 @@
 import { useStyles } from "./details.styles";
 
-const Details = ({ count, description }: IDetails) => {
+/**
+ * Component to render description and counts
+ * @param {IDetails}
+ * @param {string} props.count 
+ * @param {string} props.description 
+ * @returns {JSX.Element}
+ */
+const Details = ({ count, description, increment }: IDetails): JSX.Element => {
   const styles = useStyles();
   return (
-    <div>
+    <div css={{display: 'flex'}}>
+      <div>
       <p css={styles.dCount}>{count}</p>
       <p css={styles.dDetails}>{description}</p>
+      </div>
+      <p css={styles.dIncrement}>{increment}</p>
     </div>
   );
 };
@@ -13,6 +23,7 @@ const Details = ({ count, description }: IDetails) => {
 interface IDetails {
   count: string;
   description?: string;
+  increment?: string;
 }
 
 export default Details;

@@ -1,10 +1,21 @@
+/**
+ * styles for mobile header
+ */
 export const useStyles = () => {
   return {
     mhContainer: {
+      paddingTop: 10,
+      display: "flex",
+      flexDirection: "column",
+      height: 100,
+      position: "fixed",
+      width: "100%",
+      background: "#ffffff",
+    },
+    wrapper: {
       padding: "0 15px",
       display: "flex",
-      justifyContent: " space-between",
-      height: 50,
+      justifyContent: "space-between",
     },
     mhWrapper: {
       display: "flex",
@@ -40,5 +51,5 @@ export const useStyles = () => {
       display: "flex",
       alignItems: "center",
     },
-  };
+  } as const;
 };

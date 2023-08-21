@@ -1,12 +1,33 @@
 import { useState } from "react";
 import svgs from "../../../assets/svgs";
-import DrawerV2 from "../../drawerV2";
+import Drawer from "../../drawer";
 import { useStyles } from "./mobileHeader.styles";
 import LeftNavigation from "../../leftNavigation/LeftNavigation";
+import OverviewTab from "../../overview/overviewTab/OverviewTab";
 
+/**
+ * Component for mobile header
+ * @returns 
+ */
 const MobileHeader = () => {
   const [drawer, setDrawer] = useState(false);
   const styles = useStyles();
+
+  /**
+   * Method to request mobile site from web
+   */
+  const requestMobileSite = () => {
+    if (
+      document.getElementsByTagName("meta")["viewport" as any].content ===
+      "width=400px" 
+    ) {
+      document.getElementsByTagName("meta")["viewport" as any].content =
+        "width=1440px";
+    } else {
+      document.getElementsByTagName("meta")["viewport" as any].content =
+        "width=400px";
+    }
+  };
 
   /**
    * Method to handle click on mobile header icon
@@ -36,15 +57,22 @@ const MobileHeader = () => {
   return (
     <>
       <header css={styles.mhContainer}>
-        <div css={styles.mhWrapper}>
-          <button css={styles.mhBtn} onClick={handleClick}>
-            <img css={styles.mhIcon} src={svgs.segment}  alt="hamburger menu"/>
-          </button>
-          <p css={styles.mhHeading}>Assessment</p>
+        <div css={styles.wrapper}>
+          <div css={styles.mhWrapper}>
+            <button css={styles.mhBtn} onClick={handleClick}>
+              <img
+                css={styles.mhIcon}
+                src={svgs.segment}
+                alt="hamburger menu"
+              />
+            </button>
+            <p css={styles.mhHeading}>Assessment</p>
+          </div>
+          <img src={svgs.web} alt="desktop" onClick={requestMobileSite}/>
         </div>
-        <img src={svgs.web} alt="desktop"/>
+        <OverviewTab />
       </header>
-      <DrawerV2
+      <Drawer
         open={drawer}
         header={drawerTitle}
         showClose={true}

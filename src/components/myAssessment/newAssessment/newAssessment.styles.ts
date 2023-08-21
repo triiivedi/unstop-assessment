@@ -1,7 +1,10 @@
 import { useMemo } from "react";
-import { JavascriptModulesPlugin } from "webpack";
 import { useBreakpoints } from "../../../hooks";
 
+/**
+ * styles for new assessment section
+ * @returns object
+ */
 export const useStyles = () => {
   const { isMobile } = useBreakpoints();
   return useMemo(() => {

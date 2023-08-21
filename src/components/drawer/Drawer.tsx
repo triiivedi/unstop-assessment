@@ -1,9 +1,6 @@
 import { useMemo } from "react";
-import { useStyles } from "./drawerV2.styles";
-// import Icon from '@components/icon';
+import { useStyles } from "./drawer.styles";
 import { useDrawer } from "./useDrawer";
-
-// import { Size } from '@components/icon/Icon';
 
 /**
  * Component to render the Drawer
@@ -13,28 +10,22 @@ import { useDrawer } from "./useDrawer";
  * @param {Function} props.onClose
  * @param {string | ReactNode} props.header (optional)
  * @param {string | ReactNode} props.body (optional)
- * @param {string | ReactNode} props.footer (optional)
  * @param {boolean} props.showClose
  * @param {boolean} props.open
  * @param {string} props.width (optional)
  * @param {string} props.height (optional)
- * @param {Size} props.iconSize (optional)
- * @param {string | ReactNode} props.icon (optional)
  * @returns JSX Element
  */
 
-const DrawerV2 = ({
+const Drawer = ({
   withBackdrop,
   customStyles,
   header,
   body,
-  footer,
   anchor,
   showClose,
   open,
   width,
-  iconSize,
-  icon,
   height,
   onClose,
   defaultOpen,
@@ -59,18 +50,12 @@ const DrawerV2 = ({
           </div>
         )}
         {body && <div css={[styles.body, customStyles?.body]}>{body}</div>}
-        {footer && (
-          <div css={[styles.footer, customStyles?.footer]}>{footer}</div>
-        )}
       </>
     ),
     [
       header,
       body,
-      footer,
       showClose,
-      icon,
-      iconSize,
       closeDrawer,
       customStyles,
       styles,
@@ -148,13 +133,10 @@ interface IDrawerV2 {
   withBackdrop?: boolean;
   header?: string | React.ReactNode;
   body?: string | React.ReactNode;
-  footer?: string | React.ReactNode;
   open: boolean;
   width?: string;
   height?: string;
   showClose?: boolean;
-  iconSize?: any;
-  icon?: string | React.ReactNode;
   onClose?: () => void;
   defaultOpen?: boolean;
 }
@@ -162,21 +144,16 @@ interface IDrawerV2 {
 interface IDrawerStyles {
   header?: ICustomStyles;
   body?: ICustomStyles;
-  footer?: ICustomStyles;
-  icon?: ICustomStyles;
-  iconPlacement?: ICustomStyles;
 }
 
 /**
  * Default props for drawer component
  */
-DrawerV2.defaultProps = {
+Drawer.defaultProps = {
   anchor: "right",
   withBackdrop: true,
   width: "50%",
-  iconSize: "m",
-  icon: "closeFilled",
   open: true,
 };
 
-export default DrawerV2;
+export default Drawer;

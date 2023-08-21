@@ -1,3 +1,7 @@
+/**
+ * styles for overview section
+ * @returns object
+ */
 export const useStyles = () => {
   return {
     aoHeading: {

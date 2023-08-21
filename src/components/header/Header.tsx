@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react";
 import svgs from "../../assets/svgs";
 import { useBreakpoints } from "../../hooks";
 import { useStyles } from "./header.styles";
 import MobileHeader from "./mobileHeader/MobileHeader";
 
+/**
+ * Component for Header
+ * @returns 
+ */
 const Header = () => {
   const styles = useStyles();
   const { isMobile } = useBreakpoints();
-  //   const [change, setChange] = useState(0);
 
+  /**
+   * Method to request desktop site from web responsive
+   */
   const requestDesktopSite = () => {
-    console.log('====================================');
-    console.log(
-      "here",
-      document.getElementsByTagName("meta")["viewport" as any].content
-    );
-    console.log('====================================')
     if (
       document.getElementsByTagName("meta")["viewport" as any].content ===
-      "width=1440px"
+      "width=1440px" 
     ) {
       document.getElementsByTagName("meta")["viewport" as any].content =
         "width=400px";
@@ -26,10 +25,6 @@ const Header = () => {
       document.getElementsByTagName("meta")["viewport" as any].content =
         "width=1440px";
     }
-      console.log(
-        "check",
-        document.getElementsByTagName("meta")["viewport" as any].content
-      );
   };
 
   return isMobile ? (
